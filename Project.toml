@@ -1,6 +1,6 @@
 name = "CUDA_jll"
 uuid = "e9e359dc-d701-5aa8-82ae-09bbf812ea83"
-version = "10.2.89+0"
+version = "9.0.176+0"
 
 [deps]
 Pkg = "44cfe95a-1eb2-52ea-b672-e2afdf69b78f"
