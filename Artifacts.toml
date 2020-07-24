@@ -5,7 +5,7 @@ libc = "glibc"
 os = "linux"
 
     [[CUDA.download]]
-    sha256 = "54b67e19aedf7e08acb933fa0b7ec7597b498e36d220152139d6280e1980cd30"
+    sha256 = "00b0b60564e8868d0973fdde99f1e91ca8f8d54fefd569c2082823715153c0dc"
     url = "https://github.com/JuliaBinaryWrappers/CUDA_jll.jl/releases/download/CUDA-v10.2.89+3/CUDA.v10.2.89.x86_64-linux-gnu.tar.gz"
 [[CUDA]]
 arch = "x86_64"
@@ -13,5 +13,5 @@ git-tree-sha1 = "541f02f35c01bada7332413510ee4b1c6f4a4d5b"
 os = "windows"
 
     [[CUDA.download]]
-    sha256 = "b55407889addc98f9ef9c2ea7742ae55d769d940d0160ac4f69bcca776d5dccf"
+    sha256 = "757a26c3535b397255673046bd6675d89967075a56dbedcc6316d691affc7260"
     url = "https://github.com/JuliaBinaryWrappers/CUDA_jll.jl/releases/download/CUDA-v10.2.89+3/CUDA.v10.2.89.x86_64-w64-mingw32.tar.gz"
