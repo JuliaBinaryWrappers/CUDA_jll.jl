@@ -103,20 +103,6 @@ const libcupti = "libcupti.so.10.2"
 
 
 # Relative path to `libcurand`
-const libcurand_splitpath = ["lib", "libnvgraph.so"]
-
-# This will be filled out by __init__() for all products, as it must be done at runtime
-libcurand_path = ""
-
-# libcurand-specific global declaration
-# This will be filled out by __init__()
-libcurand_handle = C_NULL
-
-# This must be `const` so that we can use it with `ccall()`
-const libcurand = "libnvgraph.so.10"
-
-
-# Relative path to `libcurand`
 const libcurand_splitpath = ["lib", "libcurand.so"]
 
 # This will be filled out by __init__() for all products, as it must be done at runtime
@@ -128,6 +114,20 @@ libcurand_handle = C_NULL
 
 # This must be `const` so that we can use it with `ccall()`
 const libcurand = "libcurand.so.10"
+
+
+# Relative path to `libcurand`
+const libcurand_splitpath = ["lib", "libnvgraph.so"]
+
+# This will be filled out by __init__() for all products, as it must be done at runtime
+libcurand_path = ""
+
+# libcurand-specific global declaration
+# This will be filled out by __init__()
+libcurand_handle = C_NULL
+
+# This must be `const` so that we can use it with `ccall()`
+const libcurand = "libnvgraph.so.10"
 
 
 # Relative path to `libcusolver`

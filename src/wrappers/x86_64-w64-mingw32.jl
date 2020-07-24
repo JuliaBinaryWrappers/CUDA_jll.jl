@@ -103,20 +103,6 @@ const libcupti = "cupti64_102.dll"
 
 
 # Relative path to `libcurand`
-const libcurand_splitpath = ["bin", "nvgraph64_10.dll"]
-
-# This will be filled out by __init__() for all products, as it must be done at runtime
-libcurand_path = ""
-
-# libcurand-specific global declaration
-# This will be filled out by __init__()
-libcurand_handle = C_NULL
-
-# This must be `const` so that we can use it with `ccall()`
-const libcurand = "nvgraph64_10.dll"
-
-
-# Relative path to `libcurand`
 const libcurand_splitpath = ["bin", "curand64_10.dll"]
 
 # This will be filled out by __init__() for all products, as it must be done at runtime
@@ -128,6 +114,20 @@ libcurand_handle = C_NULL
 
 # This must be `const` so that we can use it with `ccall()`
 const libcurand = "curand64_10.dll"
+
+
+# Relative path to `libcurand`
+const libcurand_splitpath = ["bin", "nvgraph64_10.dll"]
+
+# This will be filled out by __init__() for all products, as it must be done at runtime
+libcurand_path = ""
+
+# libcurand-specific global declaration
+# This will be filled out by __init__()
+libcurand_handle = C_NULL
+
+# This must be `const` so that we can use it with `ccall()`
+const libcurand = "nvgraph64_10.dll"
 
 
 # Relative path to `libcusolver`
