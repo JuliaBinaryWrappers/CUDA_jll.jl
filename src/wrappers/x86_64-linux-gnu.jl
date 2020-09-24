@@ -99,7 +99,7 @@ libcupti_path = ""
 libcupti_handle = C_NULL
 
 # This must be `const` so that we can use it with `ccall()`
-const libcupti = "libcupti.so.11.0"
+const libcupti = "libcupti.so.11.1"
 
 
 # Relative path to `libcurand`
@@ -127,7 +127,7 @@ libcusolver_path = ""
 libcusolver_handle = C_NULL
 
 # This must be `const` so that we can use it with `ccall()`
-const libcusolver = "libcusolver.so.10"
+const libcusolver = "libcusolver.so.11"
 
 
 # Relative path to `libcusolverMg`
@@ -141,7 +141,7 @@ libcusolverMg_path = ""
 libcusolverMg_handle = C_NULL
 
 # This must be `const` so that we can use it with `ccall()`
-const libcusolverMg = "libcusolverMg.so.10"
+const libcusolverMg = "libcusolverMg.so.11"
 
 
 # Relative path to `libcusparse`
@@ -396,26 +396,29 @@ function nvdisasm(f::Function; adjust_PATH::Bool = true, adjust_LIBPATH::Bool = 
 end
 
 
+# Inform that the wrapper is available for this platform
+wrapper_available = true
+
 """
 Open all libraries
 """
 function __init__()
-    global artifact_dir = abspath(artifact"CUDA")
+    # This either calls `@artifact_str()`, or returns a constant string if we're overridden.
+    global artifact_dir = find_artifact_dir()
 
-    # Initialize PATH and LIBPATH environment variable listings
     global PATH_list, LIBPATH_list
     global libcublas_path = normpath(joinpath(artifact_dir, libcublas_splitpath...))
 
     # Manually `dlopen()` this right now so that future invocations
     # of `ccall` with its `SONAME` will find this path immediately.
-    global libcublas_handle = dlopen(libcublas_path)
+    global libcublas_handle = dlopen(libcublas_path, RTLD_LAZY | RTLD_DEEPBIND)
     push!(LIBPATH_list, dirname(libcublas_path))
 
     global libcublasLt_path = normpath(joinpath(artifact_dir, libcublasLt_splitpath...))
 
     # Manually `dlopen()` this right now so that future invocations
     # of `ccall` with its `SONAME` will find this path immediately.
-    global libcublasLt_handle = dlopen(libcublasLt_path)
+    global libcublasLt_handle = dlopen(libcublasLt_path, RTLD_LAZY | RTLD_DEEPBIND)
     push!(LIBPATH_list, dirname(libcublasLt_path))
 
     global libcudadevrt_path = normpath(joinpath(artifact_dir, libcudadevrt_splitpath...))
@@ -425,56 +428,56 @@ function __init__()
 
     # Manually `dlopen()` this right now so that future invocations
     # of `ccall` with its `SONAME` will find this path immediately.
-    global libcudart_handle = dlopen(libcudart_path)
+    global libcudart_handle = dlopen(libcudart_path, RTLD_LAZY | RTLD_DEEPBIND)
     push!(LIBPATH_list, dirname(libcudart_path))
 
     global libcufft_path = normpath(joinpath(artifact_dir, libcufft_splitpath...))
 
     # Manually `dlopen()` this right now so that future invocations
     # of `ccall` with its `SONAME` will find this path immediately.
-    global libcufft_handle = dlopen(libcufft_path)
+    global libcufft_handle = dlopen(libcufft_path, RTLD_LAZY | RTLD_DEEPBIND)
     push!(LIBPATH_list, dirname(libcufft_path))
 
     global libcufftw_path = normpath(joinpath(artifact_dir, libcufftw_splitpath...))
 
     # Manually `dlopen()` this right now so that future invocations
     # of `ccall` with its `SONAME` will find this path immediately.
-    global libcufftw_handle = dlopen(libcufftw_path)
+    global libcufftw_handle = dlopen(libcufftw_path, RTLD_LAZY | RTLD_DEEPBIND)
     push!(LIBPATH_list, dirname(libcufftw_path))
 
     global libcupti_path = normpath(joinpath(artifact_dir, libcupti_splitpath...))
 
     # Manually `dlopen()` this right now so that future invocations
     # of `ccall` with its `SONAME` will find this path immediately.
-    global libcupti_handle = dlopen(libcupti_path)
+    global libcupti_handle = dlopen(libcupti_path, RTLD_LAZY | RTLD_DEEPBIND)
     push!(LIBPATH_list, dirname(libcupti_path))
 
     global libcurand_path = normpath(joinpath(artifact_dir, libcurand_splitpath...))
 
     # Manually `dlopen()` this right now so that future invocations
     # of `ccall` with its `SONAME` will find this path immediately.
-    global libcurand_handle = dlopen(libcurand_path)
+    global libcurand_handle = dlopen(libcurand_path, RTLD_LAZY | RTLD_DEEPBIND)
     push!(LIBPATH_list, dirname(libcurand_path))
 
     global libcusolver_path = normpath(joinpath(artifact_dir, libcusolver_splitpath...))
 
     # Manually `dlopen()` this right now so that future invocations
     # of `ccall` with its `SONAME` will find this path immediately.
-    global libcusolver_handle = dlopen(libcusolver_path)
+    global libcusolver_handle = dlopen(libcusolver_path, RTLD_LAZY | RTLD_DEEPBIND)
     push!(LIBPATH_list, dirname(libcusolver_path))
 
     global libcusolverMg_path = normpath(joinpath(artifact_dir, libcusolverMg_splitpath...))
 
     # Manually `dlopen()` this right now so that future invocations
     # of `ccall` with its `SONAME` will find this path immediately.
-    global libcusolverMg_handle = dlopen(libcusolverMg_path)
+    global libcusolverMg_handle = dlopen(libcusolverMg_path, RTLD_LAZY | RTLD_DEEPBIND)
     push!(LIBPATH_list, dirname(libcusolverMg_path))
 
     global libcusparse_path = normpath(joinpath(artifact_dir, libcusparse_splitpath...))
 
     # Manually `dlopen()` this right now so that future invocations
     # of `ccall` with its `SONAME` will find this path immediately.
-    global libcusparse_handle = dlopen(libcusparse_path)
+    global libcusparse_handle = dlopen(libcusparse_path, RTLD_LAZY | RTLD_DEEPBIND)
     push!(LIBPATH_list, dirname(libcusparse_path))
 
     global libdevice_path = normpath(joinpath(artifact_dir, libdevice_splitpath...))
@@ -484,98 +487,98 @@ function __init__()
 
     # Manually `dlopen()` this right now so that future invocations
     # of `ccall` with its `SONAME` will find this path immediately.
-    global libnppc_handle = dlopen(libnppc_path)
+    global libnppc_handle = dlopen(libnppc_path, RTLD_LAZY | RTLD_DEEPBIND)
     push!(LIBPATH_list, dirname(libnppc_path))
 
     global libnppial_path = normpath(joinpath(artifact_dir, libnppial_splitpath...))
 
     # Manually `dlopen()` this right now so that future invocations
     # of `ccall` with its `SONAME` will find this path immediately.
-    global libnppial_handle = dlopen(libnppial_path)
+    global libnppial_handle = dlopen(libnppial_path, RTLD_LAZY | RTLD_DEEPBIND)
     push!(LIBPATH_list, dirname(libnppial_path))
 
     global libnppicc_path = normpath(joinpath(artifact_dir, libnppicc_splitpath...))
 
     # Manually `dlopen()` this right now so that future invocations
     # of `ccall` with its `SONAME` will find this path immediately.
-    global libnppicc_handle = dlopen(libnppicc_path)
+    global libnppicc_handle = dlopen(libnppicc_path, RTLD_LAZY | RTLD_DEEPBIND)
     push!(LIBPATH_list, dirname(libnppicc_path))
 
     global libnppidei_path = normpath(joinpath(artifact_dir, libnppidei_splitpath...))
 
     # Manually `dlopen()` this right now so that future invocations
     # of `ccall` with its `SONAME` will find this path immediately.
-    global libnppidei_handle = dlopen(libnppidei_path)
+    global libnppidei_handle = dlopen(libnppidei_path, RTLD_LAZY | RTLD_DEEPBIND)
     push!(LIBPATH_list, dirname(libnppidei_path))
 
     global libnppif_path = normpath(joinpath(artifact_dir, libnppif_splitpath...))
 
     # Manually `dlopen()` this right now so that future invocations
     # of `ccall` with its `SONAME` will find this path immediately.
-    global libnppif_handle = dlopen(libnppif_path)
+    global libnppif_handle = dlopen(libnppif_path, RTLD_LAZY | RTLD_DEEPBIND)
     push!(LIBPATH_list, dirname(libnppif_path))
 
     global libnppig_path = normpath(joinpath(artifact_dir, libnppig_splitpath...))
 
     # Manually `dlopen()` this right now so that future invocations
     # of `ccall` with its `SONAME` will find this path immediately.
-    global libnppig_handle = dlopen(libnppig_path)
+    global libnppig_handle = dlopen(libnppig_path, RTLD_LAZY | RTLD_DEEPBIND)
     push!(LIBPATH_list, dirname(libnppig_path))
 
     global libnppim_path = normpath(joinpath(artifact_dir, libnppim_splitpath...))
 
     # Manually `dlopen()` this right now so that future invocations
     # of `ccall` with its `SONAME` will find this path immediately.
-    global libnppim_handle = dlopen(libnppim_path)
+    global libnppim_handle = dlopen(libnppim_path, RTLD_LAZY | RTLD_DEEPBIND)
     push!(LIBPATH_list, dirname(libnppim_path))
 
     global libnppist_path = normpath(joinpath(artifact_dir, libnppist_splitpath...))
 
     # Manually `dlopen()` this right now so that future invocations
     # of `ccall` with its `SONAME` will find this path immediately.
-    global libnppist_handle = dlopen(libnppist_path)
+    global libnppist_handle = dlopen(libnppist_path, RTLD_LAZY | RTLD_DEEPBIND)
     push!(LIBPATH_list, dirname(libnppist_path))
 
     global libnppisu_path = normpath(joinpath(artifact_dir, libnppisu_splitpath...))
 
     # Manually `dlopen()` this right now so that future invocations
     # of `ccall` with its `SONAME` will find this path immediately.
-    global libnppisu_handle = dlopen(libnppisu_path)
+    global libnppisu_handle = dlopen(libnppisu_path, RTLD_LAZY | RTLD_DEEPBIND)
     push!(LIBPATH_list, dirname(libnppisu_path))
 
     global libnppitc_path = normpath(joinpath(artifact_dir, libnppitc_splitpath...))
 
     # Manually `dlopen()` this right now so that future invocations
     # of `ccall` with its `SONAME` will find this path immediately.
-    global libnppitc_handle = dlopen(libnppitc_path)
+    global libnppitc_handle = dlopen(libnppitc_path, RTLD_LAZY | RTLD_DEEPBIND)
     push!(LIBPATH_list, dirname(libnppitc_path))
 
     global libnpps_path = normpath(joinpath(artifact_dir, libnpps_splitpath...))
 
     # Manually `dlopen()` this right now so that future invocations
     # of `ccall` with its `SONAME` will find this path immediately.
-    global libnpps_handle = dlopen(libnpps_path)
+    global libnpps_handle = dlopen(libnpps_path, RTLD_LAZY | RTLD_DEEPBIND)
     push!(LIBPATH_list, dirname(libnpps_path))
 
     global libnvblas_path = normpath(joinpath(artifact_dir, libnvblas_splitpath...))
 
     # Manually `dlopen()` this right now so that future invocations
     # of `ccall` with its `SONAME` will find this path immediately.
-    global libnvblas_handle = dlopen(libnvblas_path)
+    global libnvblas_handle = dlopen(libnvblas_path, RTLD_LAZY | RTLD_DEEPBIND)
     push!(LIBPATH_list, dirname(libnvblas_path))
 
     global libnvtoolsext_path = normpath(joinpath(artifact_dir, libnvtoolsext_splitpath...))
 
     # Manually `dlopen()` this right now so that future invocations
     # of `ccall` with its `SONAME` will find this path immediately.
-    global libnvtoolsext_handle = dlopen(libnvtoolsext_path)
+    global libnvtoolsext_handle = dlopen(libnvtoolsext_path, RTLD_LAZY | RTLD_DEEPBIND)
     push!(LIBPATH_list, dirname(libnvtoolsext_path))
 
     global libnvvm_path = normpath(joinpath(artifact_dir, libnvvm_splitpath...))
 
     # Manually `dlopen()` this right now so that future invocations
     # of `ccall` with its `SONAME` will find this path immediately.
-    global libnvvm_handle = dlopen(libnvvm_path)
+    global libnvvm_handle = dlopen(libnvvm_path, RTLD_LAZY | RTLD_DEEPBIND)
     push!(LIBPATH_list, dirname(libnvvm_path))
 
     global nvdisasm_path = normpath(joinpath(artifact_dir, nvdisasm_splitpath...))
@@ -589,4 +592,3 @@ function __init__()
 
     
 end  # __init__()
-
