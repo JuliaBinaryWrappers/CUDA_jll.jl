@@ -8,10 +8,10 @@ JLLWrappers.@declare_file_product(libcudadevrt)
 JLLWrappers.@declare_library_product(libcudart, "cudart64_110.dll")
 JLLWrappers.@declare_library_product(libcufft, "cufft64_10.dll")
 JLLWrappers.@declare_library_product(libcufftw, "cufftw64_10.dll")
-JLLWrappers.@declare_library_product(libcupti, "cupti64_2020.1.1.dll")
+JLLWrappers.@declare_library_product(libcupti, "cupti64_2020.2.0.dll")
 JLLWrappers.@declare_library_product(libcurand, "curand64_10.dll")
-JLLWrappers.@declare_library_product(libcusolver, "cusolver64_10.dll")
-JLLWrappers.@declare_library_product(libcusolverMg, "cusolverMg64_10.dll")
+JLLWrappers.@declare_library_product(libcusolver, "cusolver64_11.dll")
+JLLWrappers.@declare_library_product(libcusolverMg, "cusolverMg64_11.dll")
 JLLWrappers.@declare_library_product(libcusparse, "cusparse64_11.dll")
 JLLWrappers.@declare_file_product(libdevice)
 JLLWrappers.@declare_library_product(libnppc, "nppc64_11.dll")
@@ -68,7 +68,7 @@ function __init__()
 
     JLLWrappers.@init_library_product(
         libcupti,
-        "bin/cupti64_2020.1.1.dll",
+        "bin/cupti64_2020.2.0.dll",
         RTLD_LAZY | RTLD_DEEPBIND,
     )
 
@@ -80,13 +80,13 @@ function __init__()
 
     JLLWrappers.@init_library_product(
         libcusolver,
-        "bin/cusolver64_10.dll",
+        "bin/cusolver64_11.dll",
         RTLD_LAZY | RTLD_DEEPBIND,
     )
 
     JLLWrappers.@init_library_product(
         libcusolverMg,
-        "bin/cusolverMg64_10.dll",
+        "bin/cusolverMg64_11.dll",
         RTLD_LAZY | RTLD_DEEPBIND,
     )
 
