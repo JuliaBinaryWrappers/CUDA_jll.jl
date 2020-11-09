@@ -8,7 +8,7 @@ JLLWrappers.@declare_file_product(libcudadevrt)
 JLLWrappers.@declare_library_product(libcudart, "cudart64_110.dll")
 JLLWrappers.@declare_library_product(libcufft, "cufft64_10.dll")
 JLLWrappers.@declare_library_product(libcufftw, "cufftw64_10.dll")
-JLLWrappers.@declare_library_product(libcupti, "cupti64_2020.2.0.dll")
+JLLWrappers.@declare_library_product(libcupti, "cupti64_2020.2.1.dll")
 JLLWrappers.@declare_library_product(libcurand, "curand64_10.dll")
 JLLWrappers.@declare_library_product(libcusolver, "cusolver64_11.dll")
 JLLWrappers.@declare_library_product(libcusolverMg, "cusolverMg64_11.dll")
@@ -33,161 +33,161 @@ function __init__()
     JLLWrappers.@generate_init_header()
     JLLWrappers.@init_library_product(
         libcublas,
-        "bin/cublas64_11.dll",
+        "bin\\cublas64_11.dll",
         RTLD_LAZY | RTLD_DEEPBIND,
     )
 
     JLLWrappers.@init_library_product(
         libcublasLt,
-        "bin/cublasLt64_11.dll",
+        "bin\\cublasLt64_11.dll",
         RTLD_LAZY | RTLD_DEEPBIND,
     )
 
     JLLWrappers.@init_file_product(
         libcudadevrt,
-        "lib/cudadevrt.lib",
+        "lib\\cudadevrt.lib",
     )
 
     JLLWrappers.@init_library_product(
         libcudart,
-        "bin/cudart64_110.dll",
+        "bin\\cudart64_110.dll",
         RTLD_LAZY | RTLD_DEEPBIND,
     )
 
     JLLWrappers.@init_library_product(
         libcufft,
-        "bin/cufft64_10.dll",
+        "bin\\cufft64_10.dll",
         RTLD_LAZY | RTLD_DEEPBIND,
     )
 
     JLLWrappers.@init_library_product(
         libcufftw,
-        "bin/cufftw64_10.dll",
+        "bin\\cufftw64_10.dll",
         RTLD_LAZY | RTLD_DEEPBIND,
     )
 
     JLLWrappers.@init_library_product(
         libcupti,
-        "bin/cupti64_2020.2.0.dll",
+        "bin\\cupti64_2020.2.1.dll",
         RTLD_LAZY | RTLD_DEEPBIND,
     )
 
     JLLWrappers.@init_library_product(
         libcurand,
-        "bin/curand64_10.dll",
+        "bin\\curand64_10.dll",
         RTLD_LAZY | RTLD_DEEPBIND,
     )
 
     JLLWrappers.@init_library_product(
         libcusolver,
-        "bin/cusolver64_11.dll",
+        "bin\\cusolver64_11.dll",
         RTLD_LAZY | RTLD_DEEPBIND,
     )
 
     JLLWrappers.@init_library_product(
         libcusolverMg,
-        "bin/cusolverMg64_11.dll",
+        "bin\\cusolverMg64_11.dll",
         RTLD_LAZY | RTLD_DEEPBIND,
     )
 
     JLLWrappers.@init_library_product(
         libcusparse,
-        "bin/cusparse64_11.dll",
+        "bin\\cusparse64_11.dll",
         RTLD_LAZY | RTLD_DEEPBIND,
     )
 
     JLLWrappers.@init_file_product(
         libdevice,
-        "share/libdevice/libdevice.10.bc",
+        "share\\libdevice\\libdevice.10.bc",
     )
 
     JLLWrappers.@init_library_product(
         libnppc,
-        "bin/nppc64_11.dll",
+        "bin\\nppc64_11.dll",
         RTLD_LAZY | RTLD_DEEPBIND,
     )
 
     JLLWrappers.@init_library_product(
         libnppial,
-        "bin/nppial64_11.dll",
+        "bin\\nppial64_11.dll",
         RTLD_LAZY | RTLD_DEEPBIND,
     )
 
     JLLWrappers.@init_library_product(
         libnppicc,
-        "bin/nppicc64_11.dll",
+        "bin\\nppicc64_11.dll",
         RTLD_LAZY | RTLD_DEEPBIND,
     )
 
     JLLWrappers.@init_library_product(
         libnppidei,
-        "bin/nppidei64_11.dll",
+        "bin\\nppidei64_11.dll",
         RTLD_LAZY | RTLD_DEEPBIND,
     )
 
     JLLWrappers.@init_library_product(
         libnppif,
-        "bin/nppif64_11.dll",
+        "bin\\nppif64_11.dll",
         RTLD_LAZY | RTLD_DEEPBIND,
     )
 
     JLLWrappers.@init_library_product(
         libnppig,
-        "bin/nppig64_11.dll",
+        "bin\\nppig64_11.dll",
         RTLD_LAZY | RTLD_DEEPBIND,
     )
 
     JLLWrappers.@init_library_product(
         libnppim,
-        "bin/nppim64_11.dll",
+        "bin\\nppim64_11.dll",
         RTLD_LAZY | RTLD_DEEPBIND,
     )
 
     JLLWrappers.@init_library_product(
         libnppist,
-        "bin/nppist64_11.dll",
+        "bin\\nppist64_11.dll",
         RTLD_LAZY | RTLD_DEEPBIND,
     )
 
     JLLWrappers.@init_library_product(
         libnppisu,
-        "bin/nppisu64_11.dll",
+        "bin\\nppisu64_11.dll",
         RTLD_LAZY | RTLD_DEEPBIND,
     )
 
     JLLWrappers.@init_library_product(
         libnppitc,
-        "bin/nppitc64_11.dll",
+        "bin\\nppitc64_11.dll",
         RTLD_LAZY | RTLD_DEEPBIND,
     )
 
     JLLWrappers.@init_library_product(
         libnpps,
-        "bin/npps64_11.dll",
+        "bin\\npps64_11.dll",
         RTLD_LAZY | RTLD_DEEPBIND,
     )
 
     JLLWrappers.@init_library_product(
         libnvblas,
-        "bin/nvblas64_11.dll",
+        "bin\\nvblas64_11.dll",
         RTLD_LAZY | RTLD_DEEPBIND,
     )
 
     JLLWrappers.@init_library_product(
         libnvtoolsext,
-        "bin/nvToolsExt64_1.dll",
+        "bin\\nvToolsExt64_1.dll",
         RTLD_LAZY | RTLD_DEEPBIND,
     )
 
     JLLWrappers.@init_library_product(
         libnvvm,
-        "bin/nvvm64_33_0.dll",
+        "bin\\nvvm64_33_0.dll",
         RTLD_LAZY | RTLD_DEEPBIND,
     )
 
     JLLWrappers.@init_executable_product(
         nvdisasm,
-        "bin/nvdisasm.exe",
+        "bin\\nvdisasm.exe",
     )
 
     JLLWrappers.@generate_init_footer()
