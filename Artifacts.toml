@@ -1,17 +1,26 @@
 [[CUDA]]
-arch = "x86_64"
-git-tree-sha1 = "4902a30cc1c0dd4d42aa245c4e2d2d9e54e7cbc0"
+arch = "powerpc64le"
+git-tree-sha1 = "b22672705ca4f00c784a3f9d58619408d4af9de0"
 libc = "glibc"
 os = "linux"
 
     [[CUDA.download]]
-    sha256 = "903c4e018891697aa6ba584c7c93b3d4c66e04f3c0d216925fd1afea0fbeae4f"
-    url = "https://github.com/JuliaBinaryWrappers/CUDA_jll.jl/releases/download/CUDA-v10.2.89+4/CUDA.v10.2.89.x86_64-linux-gnu.tar.gz"
+    sha256 = "396dc85ffa4686c2c6822df25419c5bd6e25317ab725a672818dbb79a761e952"
+    url = "https://github.com/JuliaBinaryWrappers/CUDA_jll.jl/releases/download/CUDA-v11.0.3+2/CUDA.v11.0.3.powerpc64le-linux-gnu.tar.gz"
 [[CUDA]]
 arch = "x86_64"
-git-tree-sha1 = "d96ad7b35e435dc21f6a9072e8e02a44f2655a0c"
+git-tree-sha1 = "6b1a60793e5e98abdcfc3724cfa22b2a5348dc09"
+libc = "glibc"
+os = "linux"
+
+    [[CUDA.download]]
+    sha256 = "5bbe675257e19eea350bf84f0e27ec36c2f35d2222e0e7cb4d50a00509d6aac0"
+    url = "https://github.com/JuliaBinaryWrappers/CUDA_jll.jl/releases/download/CUDA-v11.0.3+2/CUDA.v11.0.3.x86_64-linux-gnu.tar.gz"
+[[CUDA]]
+arch = "x86_64"
+git-tree-sha1 = "c54ef6151a5f3dc7e1a053f1c1a9f85352dca3e4"
 os = "windows"
 
     [[CUDA.download]]
-    sha256 = "a1a3a2c73fa8fb17e317b41300c85659ccf43edf6e15e1af2396003d3e14359d"
-    url = "https://github.com/JuliaBinaryWrappers/CUDA_jll.jl/releases/download/CUDA-v10.2.89+4/CUDA.v10.2.89.x86_64-w64-mingw32.tar.gz"
+    sha256 = "80d49fdf47715132da41842331718a73fd1dc544c9a8d09a9610a64791d1fb5d"
+    url = "https://github.com/JuliaBinaryWrappers/CUDA_jll.jl/releases/download/CUDA-v11.0.3+2/CUDA.v11.0.3.x86_64-w64-mingw32.tar.gz"
