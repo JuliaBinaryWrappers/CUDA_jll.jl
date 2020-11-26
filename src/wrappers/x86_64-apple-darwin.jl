@@ -2,30 +2,30 @@
 export libcublas, libcudadevrt, libcudart, libcufft, libcufftw, libcupti, libcurand, libcusolver, libcusparse, libdevice, libnppc, libnppial, libnppicc, libnppicom, libnppidei, libnppif, libnppig, libnppim, libnppist, libnppisu, libnppitc, libnpps, libnvblas, libnvgraph, libnvtoolsext, libnvvm, nvdisasm
 
 JLLWrappers.@generate_wrapper_header("CUDA")
-JLLWrappers.@declare_library_product(libcublas, "@rpath/libcublas.9.0.dylib")
+JLLWrappers.@declare_library_product(libcublas, "@rpath/libcublas.9.2.dylib")
 JLLWrappers.@declare_file_product(libcudadevrt)
-JLLWrappers.@declare_library_product(libcudart, "@rpath/libcudart.9.0.dylib")
-JLLWrappers.@declare_library_product(libcufft, "@rpath/libcufft.9.0.dylib")
-JLLWrappers.@declare_library_product(libcufftw, "@rpath/libcufftw.9.0.dylib")
-JLLWrappers.@declare_library_product(libcupti, "@rpath/libcupti.9.0.dylib")
-JLLWrappers.@declare_library_product(libcurand, "@rpath/libcurand.9.0.dylib")
-JLLWrappers.@declare_library_product(libcusolver, "@rpath/libcusolver.9.0.dylib")
-JLLWrappers.@declare_library_product(libcusparse, "@rpath/libcusparse.9.0.dylib")
+JLLWrappers.@declare_library_product(libcudart, "@rpath/libcudart.9.2.dylib")
+JLLWrappers.@declare_library_product(libcufft, "@rpath/libcufft.9.2.dylib")
+JLLWrappers.@declare_library_product(libcufftw, "@rpath/libcufftw.9.2.dylib")
+JLLWrappers.@declare_library_product(libcupti, "@rpath/libcupti.9.2.dylib")
+JLLWrappers.@declare_library_product(libcurand, "@rpath/libcurand.9.2.dylib")
+JLLWrappers.@declare_library_product(libcusolver, "@rpath/libcusolver.9.2.dylib")
+JLLWrappers.@declare_library_product(libcusparse, "@rpath/libcusparse.9.2.dylib")
 JLLWrappers.@declare_file_product(libdevice)
-JLLWrappers.@declare_library_product(libnppc, "@rpath/libnppc.9.0.dylib")
-JLLWrappers.@declare_library_product(libnppial, "@rpath/libnppial.9.0.dylib")
-JLLWrappers.@declare_library_product(libnppicc, "@rpath/libnppicc.9.0.dylib")
-JLLWrappers.@declare_library_product(libnppicom, "@rpath/libnppicom.9.0.dylib")
-JLLWrappers.@declare_library_product(libnppidei, "@rpath/libnppidei.9.0.dylib")
-JLLWrappers.@declare_library_product(libnppif, "@rpath/libnppif.9.0.dylib")
-JLLWrappers.@declare_library_product(libnppig, "@rpath/libnppig.9.0.dylib")
-JLLWrappers.@declare_library_product(libnppim, "@rpath/libnppim.9.0.dylib")
-JLLWrappers.@declare_library_product(libnppist, "@rpath/libnppist.9.0.dylib")
-JLLWrappers.@declare_library_product(libnppisu, "@rpath/libnppisu.9.0.dylib")
-JLLWrappers.@declare_library_product(libnppitc, "@rpath/libnppitc.9.0.dylib")
-JLLWrappers.@declare_library_product(libnpps, "@rpath/libnpps.9.0.dylib")
-JLLWrappers.@declare_library_product(libnvblas, "@rpath/libnvblas.9.0.dylib")
-JLLWrappers.@declare_library_product(libnvgraph, "@rpath/libnvgraph.9.0.dylib")
+JLLWrappers.@declare_library_product(libnppc, "@rpath/libnppc.9.2.dylib")
+JLLWrappers.@declare_library_product(libnppial, "@rpath/libnppial.9.2.dylib")
+JLLWrappers.@declare_library_product(libnppicc, "@rpath/libnppicc.9.2.dylib")
+JLLWrappers.@declare_library_product(libnppicom, "@rpath/libnppicom.9.2.dylib")
+JLLWrappers.@declare_library_product(libnppidei, "@rpath/libnppidei.9.2.dylib")
+JLLWrappers.@declare_library_product(libnppif, "@rpath/libnppif.9.2.dylib")
+JLLWrappers.@declare_library_product(libnppig, "@rpath/libnppig.9.2.dylib")
+JLLWrappers.@declare_library_product(libnppim, "@rpath/libnppim.9.2.dylib")
+JLLWrappers.@declare_library_product(libnppist, "@rpath/libnppist.9.2.dylib")
+JLLWrappers.@declare_library_product(libnppisu, "@rpath/libnppisu.9.2.dylib")
+JLLWrappers.@declare_library_product(libnppitc, "@rpath/libnppitc.9.2.dylib")
+JLLWrappers.@declare_library_product(libnpps, "@rpath/libnpps.9.2.dylib")
+JLLWrappers.@declare_library_product(libnvblas, "@rpath/libnvblas.9.2.dylib")
+JLLWrappers.@declare_library_product(libnvgraph, "@rpath/libnvgraph.9.2.dylib")
 JLLWrappers.@declare_library_product(libnvtoolsext, "@rpath/libnvToolsExt.1.dylib")
 JLLWrappers.@declare_library_product(libnvvm, "@rpath/libnvvm.3.2.0.dylib")
 JLLWrappers.@declare_executable_product(nvdisasm)
@@ -33,7 +33,7 @@ function __init__()
     JLLWrappers.@generate_init_header()
     JLLWrappers.@init_library_product(
         libcublas,
-        "lib/libcublas.9.0.dylib",
+        "lib/libcublas.9.2.dylib",
         RTLD_LAZY | RTLD_DEEPBIND,
     )
 
@@ -44,43 +44,43 @@ function __init__()
 
     JLLWrappers.@init_library_product(
         libcudart,
-        "lib/libcudart.9.0.dylib",
+        "lib/libcudart.9.2.dylib",
         RTLD_LAZY | RTLD_DEEPBIND,
     )
 
     JLLWrappers.@init_library_product(
         libcufft,
-        "lib/libcufft.9.0.dylib",
+        "lib/libcufft.9.2.dylib",
         RTLD_LAZY | RTLD_DEEPBIND,
     )
 
     JLLWrappers.@init_library_product(
         libcufftw,
-        "lib/libcufftw.9.0.dylib",
+        "lib/libcufftw.9.2.dylib",
         RTLD_LAZY | RTLD_DEEPBIND,
     )
 
     JLLWrappers.@init_library_product(
         libcupti,
-        "lib/libcupti.9.0.dylib",
+        "lib/libcupti.9.2.dylib",
         RTLD_LAZY | RTLD_DEEPBIND,
     )
 
     JLLWrappers.@init_library_product(
         libcurand,
-        "lib/libcurand.9.0.dylib",
+        "lib/libcurand.9.2.dylib",
         RTLD_LAZY | RTLD_DEEPBIND,
     )
 
     JLLWrappers.@init_library_product(
         libcusolver,
-        "lib/libcusolver.9.0.dylib",
+        "lib/libcusolver.9.2.dylib",
         RTLD_LAZY | RTLD_DEEPBIND,
     )
 
     JLLWrappers.@init_library_product(
         libcusparse,
-        "lib/libcusparse.9.0.dylib",
+        "lib/libcusparse.9.2.dylib",
         RTLD_LAZY | RTLD_DEEPBIND,
     )
 
@@ -91,85 +91,85 @@ function __init__()
 
     JLLWrappers.@init_library_product(
         libnppc,
-        "lib/libnppc.9.0.dylib",
+        "lib/libnppc.9.2.dylib",
         RTLD_LAZY | RTLD_DEEPBIND,
     )
 
     JLLWrappers.@init_library_product(
         libnppial,
-        "lib/libnppial.9.0.dylib",
+        "lib/libnppial.9.2.dylib",
         RTLD_LAZY | RTLD_DEEPBIND,
     )
 
     JLLWrappers.@init_library_product(
         libnppicc,
-        "lib/libnppicc.9.0.dylib",
+        "lib/libnppicc.9.2.dylib",
         RTLD_LAZY | RTLD_DEEPBIND,
     )
 
     JLLWrappers.@init_library_product(
         libnppicom,
-        "lib/libnppicom.9.0.dylib",
+        "lib/libnppicom.9.2.dylib",
         RTLD_LAZY | RTLD_DEEPBIND,
     )
 
     JLLWrappers.@init_library_product(
         libnppidei,
-        "lib/libnppidei.9.0.dylib",
+        "lib/libnppidei.9.2.dylib",
         RTLD_LAZY | RTLD_DEEPBIND,
     )
 
     JLLWrappers.@init_library_product(
         libnppif,
-        "lib/libnppif.9.0.dylib",
+        "lib/libnppif.9.2.dylib",
         RTLD_LAZY | RTLD_DEEPBIND,
     )
 
     JLLWrappers.@init_library_product(
         libnppig,
-        "lib/libnppig.9.0.dylib",
+        "lib/libnppig.9.2.dylib",
         RTLD_LAZY | RTLD_DEEPBIND,
     )
 
     JLLWrappers.@init_library_product(
         libnppim,
-        "lib/libnppim.9.0.dylib",
+        "lib/libnppim.9.2.dylib",
         RTLD_LAZY | RTLD_DEEPBIND,
     )
 
     JLLWrappers.@init_library_product(
         libnppist,
-        "lib/libnppist.9.0.dylib",
+        "lib/libnppist.9.2.dylib",
         RTLD_LAZY | RTLD_DEEPBIND,
     )
 
     JLLWrappers.@init_library_product(
         libnppisu,
-        "lib/libnppisu.9.0.dylib",
+        "lib/libnppisu.9.2.dylib",
         RTLD_LAZY | RTLD_DEEPBIND,
     )
 
     JLLWrappers.@init_library_product(
         libnppitc,
-        "lib/libnppitc.9.0.dylib",
+        "lib/libnppitc.9.2.dylib",
         RTLD_LAZY | RTLD_DEEPBIND,
     )
 
     JLLWrappers.@init_library_product(
         libnpps,
-        "lib/libnpps.9.0.dylib",
+        "lib/libnpps.9.2.dylib",
         RTLD_LAZY | RTLD_DEEPBIND,
     )
 
     JLLWrappers.@init_library_product(
         libnvblas,
-        "lib/libnvblas.9.0.dylib",
+        "lib/libnvblas.9.2.dylib",
         RTLD_LAZY | RTLD_DEEPBIND,
     )
 
     JLLWrappers.@init_library_product(
         libnvgraph,
-        "lib/libnvgraph.9.0.dylib",
+        "lib/libnvgraph.9.2.dylib",
         RTLD_LAZY | RTLD_DEEPBIND,
     )
 
