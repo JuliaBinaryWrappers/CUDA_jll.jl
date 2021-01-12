@@ -5,10 +5,10 @@ JLLWrappers.@generate_wrapper_header("CUDA")
 JLLWrappers.@declare_library_product(libcublas, "cublas64_10.dll")
 JLLWrappers.@declare_library_product(libcublasLt, "cublasLt64_10.dll")
 JLLWrappers.@declare_file_product(libcudadevrt)
-JLLWrappers.@declare_library_product(libcudart, "cudart64_101.dll")
+JLLWrappers.@declare_library_product(libcudart, "cudart64_102.dll")
 JLLWrappers.@declare_library_product(libcufft, "cufft64_10.dll")
 JLLWrappers.@declare_library_product(libcufftw, "cufftw64_10.dll")
-JLLWrappers.@declare_library_product(libcupti, "cupti64_101.dll")
+JLLWrappers.@declare_library_product(libcupti, "cupti64_102.dll")
 JLLWrappers.@declare_library_product(libcurand, "curand64_10.dll")
 JLLWrappers.@declare_library_product(libcusolver, "cusolver64_10.dll")
 JLLWrappers.@declare_library_product(libcusolverMg, "cusolverMg64_10.dll")
@@ -52,7 +52,7 @@ function __init__()
 
     JLLWrappers.@init_library_product(
         libcudart,
-        "bin\\cudart64_101.dll",
+        "bin\\cudart64_102.dll",
         RTLD_LAZY | RTLD_DEEPBIND,
     )
 
@@ -70,7 +70,7 @@ function __init__()
 
     JLLWrappers.@init_library_product(
         libcupti,
-        "bin\\cupti64_101.dll",
+        "bin\\cupti64_102.dll",
         RTLD_LAZY | RTLD_DEEPBIND,
     )
 
