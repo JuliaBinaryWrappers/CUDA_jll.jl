@@ -2,14 +2,13 @@
 export compute_sanitizer, libcublas, libcublasLt, libcudadevrt, libcudart, libcufft, libcufftw, libcupti, libcurand, libcusolver, libcusolverMg, libcusparse, libdevice, libnppc, libnppial, libnppicc, libnppidei, libnppif, libnppig, libnppim, libnppist, libnppisu, libnppitc, libnpps, libnvblas, libnvtoolsext, libnvvm, nvdisasm
 
 JLLWrappers.@generate_wrapper_header("CUDA")
-JLLWrappers.@declare_executable_product(compute_sanitizer)
 JLLWrappers.@declare_library_product(libcublas, "cublas64_11.dll")
 JLLWrappers.@declare_library_product(libcublasLt, "cublasLt64_11.dll")
 JLLWrappers.@declare_file_product(libcudadevrt)
 JLLWrappers.@declare_library_product(libcudart, "cudart64_110.dll")
 JLLWrappers.@declare_library_product(libcufft, "cufft64_10.dll")
 JLLWrappers.@declare_library_product(libcufftw, "cufftw64_10.dll")
-JLLWrappers.@declare_library_product(libcupti, "cupti64_2021.3.1.dll")
+JLLWrappers.@declare_library_product(libcupti, "cupti64_2022.1.0.dll")
 JLLWrappers.@declare_library_product(libcurand, "curand64_10.dll")
 JLLWrappers.@declare_library_product(libcusolver, "cusolver64_11.dll")
 JLLWrappers.@declare_library_product(libcusolverMg, "cusolverMg64_11.dll")
@@ -29,14 +28,10 @@ JLLWrappers.@declare_library_product(libnpps, "npps64_11.dll")
 JLLWrappers.@declare_library_product(libnvblas, "nvblas64_11.dll")
 JLLWrappers.@declare_library_product(libnvtoolsext, "nvToolsExt64_1.dll")
 JLLWrappers.@declare_library_product(libnvvm, "nvvm64_40_0.dll")
+JLLWrappers.@declare_executable_product(compute_sanitizer)
 JLLWrappers.@declare_executable_product(nvdisasm)
 function __init__()
     JLLWrappers.@generate_init_header()
-    JLLWrappers.@init_executable_product(
-        compute_sanitizer,
-        "bin\\compute-sanitizer.exe",
-    )
-
     JLLWrappers.@init_library_product(
         libcublas,
         "bin\\cublas64_11.dll",
@@ -74,7 +69,7 @@ function __init__()
 
     JLLWrappers.@init_library_product(
         libcupti,
-        "bin\\cupti64_2021.3.1.dll",
+        "bin\\cupti64_2022.1.0.dll",
         RTLD_LAZY | RTLD_DEEPBIND,
     )
 
@@ -189,6 +184,11 @@ function __init__()
         libnvvm,
         "bin\\nvvm64_40_0.dll",
         RTLD_LAZY | RTLD_DEEPBIND,
+    )
+
+    JLLWrappers.@init_executable_product(
+        compute_sanitizer,
+        "bin\\compute-sanitizer.exe",
     )
 
     JLLWrappers.@init_executable_product(
